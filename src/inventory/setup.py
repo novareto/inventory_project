@@ -18,6 +18,7 @@ setup(name='inventory',
       include_package_data=True,
       zip_safe=False,
       install_requires=[
+          'dolmen.forms.crud',
           # -*- Extra requirements: -*-
       ],
       entry_points={
@@ -25,7 +26,7 @@ setup(name='inventory',
             'inventory = inventory.resources:library',
          ],
          'paste.app_factory': [
-             'app = inventory.utils:Application',
+             'app = inventory.utils:app_factory',
          ],
       }
       )

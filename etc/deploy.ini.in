@@ -4,10 +4,22 @@ recompute_hashes = false
 versioning = true
 bottom = true
 minified = true
-next = inventory 
+next = zodb 
 
 [filter:locale]
 use = egg:cromlech.i18n#locale
+
+[filter-app:zodb]
+use = egg:cromlech.zodb#zodb 
+initializer = inventory.utils:create_my_app
+configuration = 
+   <zodb>
+     <filestorage>
+       path ${storage}/Data.fs
+     </filestorage>
+   </zodb>
+next = inventory
+
 
 [app:inventory]
 use = egg:inventory#app
